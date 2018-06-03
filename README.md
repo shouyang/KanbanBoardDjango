@@ -1,0 +1,1 @@
+I make dis 2 learn da djangoes
