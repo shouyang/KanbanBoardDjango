@@ -1,0 +1,12 @@
+<div>
+    <strong> <a href="{% url 'task-detail' pk=task.uuid %}">{{ task.title }}</a></strong>
+    <p>
+        {{ task.description|slice:":300" }}
+        {% if task.description|length > 300 %} ... {% endif %}
+    </p>
+
+    <strong>
+        < > + - <a href="{% url 'task-edit' pk=task.uuid %}">Edit</a>
+
+    </strong>
+</div>

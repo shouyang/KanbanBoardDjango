@@ -1,0 +1,24 @@
+{% extends 'kanban/kanban_base.html' %}
+
+
+
+{% block title %} Kanban Board {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <h1>Django Kanban Board</h1>
+        <a href="{% url 'task-add' %}">Add Task</a>
+    </div>
+
+
+    <div class="row">
+        {% include 'kanban/index_task_list.html' with task_list=TODO_list col_title='TODO Tasks' %}
+        {% include 'kanban/index_task_list.html' with task_list=PROG_list col_title='PROG Tasks' %}
+        {% include 'kanban/index_task_list.html' with task_list=TEST_list col_title='TEST Tasks' %}
+        {% include 'kanban/index_task_list.html' with task_list=DONE_list col_title='DONE Tasks' %}
+    </div>
+</div>
+
+{% endblock %}

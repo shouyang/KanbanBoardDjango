@@ -1,0 +1,45 @@
+{% extends 'kanban/kanban_base.html' %}
+
+{% block title %}Task: {{ task.title }}{% endblock %}
+
+{% block content %}
+
+    <h2>Task: {{ task.title }}</h2>
+    <strong>Status: {{  task.get_status_display}} |</strong>
+    <a href="{% url 'index' %}">Back To Board</a>
+
+    <hr>
+
+    <p>{{ task.description }}</p>
+
+
+
+    {% if task.taskcomment_set.all %}
+        <strong>Comments</strong>
+        <ul>
+        {% for task_comment in task.taskcomment_set.all %}
+            <li>
+                <p> {{ task_comment.text }}</p>
+                {{ task_comment.author }} - {{ task_comment.date_created }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+
+
+
+
+    <p>
+    Author: {{ task.author }} <br>
+    Date Created: {{ task.date_created }} <br>
+    Last Modified: {{ task.date_modified }} <br>
+    </p>
+
+
+
+
+
+
+{% endblock %}
+

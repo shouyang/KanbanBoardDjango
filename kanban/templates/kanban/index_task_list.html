@@ -1,0 +1,10 @@
+<div class="col">
+    <h4>{{ col_title }}</h4>
+    {% if task_list %}
+        {% for task in task_list %}
+            {% include 'kanban/index_task_panel.html' with task=task %}
+        {% endfor %}
+    {% else %}
+        No Tasks Present
+    {% endif %}
+</div>
