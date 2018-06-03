@@ -1,11 +1,11 @@
 {% extends 'kanban/kanban_base.html' %}
 
 {% block title %}
-Edit Task
+Add Comment
 {% endblock %}
 
 {% block content %}
-<h2>Edit Task</h2>
+<h2>Add Comment</h2>
 
 <form method="post">
     {% csrf_token %}
@@ -14,7 +14,5 @@ Edit Task
     </table>
 
     <input type="submit" value="Save" />
-    <input type="submit" value="Delete" formaction="{% url 'task-delete' pk=task.uuid %}"/>
 </form>
-
 {% endblock %}

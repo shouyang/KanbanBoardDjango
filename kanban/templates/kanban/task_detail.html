@@ -12,23 +12,21 @@
 
     <p>{{ task.description }}</p>
 
-
-
-    {% if task.taskcomment_set.all %}
+    <p>
         <strong>Comments</strong>
+        <br>
+        <a href="{% url 'taskcomment-add-specific' task_pk=task.uuid %}">Add Comment</a>
+        {% if task.taskcomment_set.all %}
         <ul>
-        {% for task_comment in task.taskcomment_set.all %}
-            <li>
-                <p> {{ task_comment.text }}</p>
-                {{ task_comment.author }} - {{ task_comment.date_created }}
-            </li>
-        {% endfor %}
+            {% for task_comment in task.taskcomment_set.all %}
+                <li>
+                    <p> {{ task_comment.text }}</p>
+                    {{ task_comment.author }} - {{ task_comment.date_created }} - <a href="{% url 'taskcomment-edit-specific' pk=task_comment.pk %}"> Edit</a>
+                </li>
+            {% endfor %}
         </ul>
-    {% endif %}
-
-
-
-
+        {% endif %}
+    </p>
 
     <p>
     Author: {{ task.author }} <br>
