@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from kanban.models import TaskComment
 
+
 class TaskCommentCreate(CreateView):
     model = TaskComment
     fields = '__all__'
@@ -20,7 +21,7 @@ class TaskCommentCreate(CreateView):
 class TaskCommentUpdate(UpdateView):
     model = TaskComment
     fields = '__all__'
-    template_name = 'kanban/taskcomment_create_form.html'
+    template_name = 'kanban/taskcomment_edit_form.html'
 
     def get_success_url(self):
         return reverse_lazy('task-detail', kwargs={'pk':self.object.task.uuid})
@@ -28,4 +29,6 @@ class TaskCommentUpdate(UpdateView):
 
 class TaskCommentDelete(DeleteView):
     model = TaskComment
-    success_url = reverse_lazy('index')
+
+    def get_success_url(self):
+        return reverse_lazy('task-detail', kwargs={'pk':self.object.task.uuid})

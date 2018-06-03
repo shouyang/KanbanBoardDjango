@@ -1,0 +1,20 @@
+{% extends 'kanban/kanban_base.html' %}
+
+{% block title %}
+Add Task
+{% endblock %}
+
+{% block content %}
+<h2>Add Task</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <input type="submit" value="Save" />
+    <input type="submit" value="Delete" formaction="{% url 'task-delete' pk=task.pk %}"/>
+</form>
+
+{% endblock %}

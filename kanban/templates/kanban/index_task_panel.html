@@ -1,12 +1,29 @@
 <div>
-    <strong> <a href="{% url 'task-detail' pk=task.uuid %}">{{ task.title }}</a></strong>
+    <h5> <a href="{% url 'task-detail' pk=task.uuid %}">{{ task.title }}</a></h5>
     <p>
-        {{ task.description|slice:":300" }}
-        {% if task.description|length > 300 %} ... {% endif %}
+        <small>{{ task.date_created }} | {{ task.author }}</small> <br>
+
+        <small>
+            {% if task.description %}
+                {{ task.description|slice:":300" }}
+                {% if task.description|length > 300 %} ... {% endif %}
+            {% else %}
+                - ...
+            {% endif %}
+        </small>
+
     </p>
-
     <strong>
-        < > + - <a href="{% url 'task-edit' pk=task.uuid %}">Edit</a>
-
+    <small>
+        <a href="{% url 'task-action-decrease_status' pk=task.uuid %}"><</a>
+        <a href="{% url 'task-action-increase_status' pk=task.uuid %}">></a>
+        <a href="{% url 'task-action-max_priority' pk=task.uuid%}">Top</a>
+        <a href="{% url 'task-action-min_priority' pk=task.uuid%}">Bottom</a>
+        <a href="{% url 'task-action-increase_priority' pk=task.uuid %}">+</a>
+        <a href="{% url 'task-action-decrease_priority' pk=task.uuid %}">-</a>
+        <a href="{% url 'task-edit' pk=task.uuid %}">Edit</a>
+    </small>
     </strong>
+    <br>
+    <br>
 </div>

@@ -32,3 +32,36 @@ class Task(models.Model):
 
     def get_absolute_url(self):
         return reverse('task-detail', kwargs={'pk': self.uuid})
+
+    def increase_status(self) -> None:
+        if self.status == 'TODO':
+            self.status = 'PROG'
+        elif self.status == 'PROG':
+            self.status = 'TEST'
+        elif self.status == 'TEST':
+            self.status = 'DONE'
+
+        self.save()
+
+    def decrease_status(self) -> None:
+        if self.status == 'PROG':
+            self.status = 'TODO'
+        elif self.status == 'TEST':
+            self.status = 'PROG'
+        elif self.status == 'DONE':
+            self.status = 'TEST'
+
+        self.save()
+
+    def max_priority(self) -> None:
+        cur_max_priority = Task.objects.all().aggregate(models.Max('priority'))['priority__max']
+
+        self.priority = cur_max_priority + 1
+        self.save()
+
+    def min_priority(self) -> None:
+
+        cur_min_priority = Task.objects.all().aggregate(models.Min('priority'))['priority__min']
+
+        self.priority = cur_min_priority - 1
+        self.save()

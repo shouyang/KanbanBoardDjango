@@ -1,10 +1,14 @@
-<div class="col">
-    <h4>{{ col_title }}</h4>
-    {% if task_list %}
-        {% for task in task_list %}
-            {% include 'kanban/index_task_panel.html' with task=task %}
-        {% endfor %}
-    {% else %}
-        No Tasks Present
-    {% endif %}
+<div class="col-sm-2 mx-2 mb-4 px-1 rounded" style="border-style: solid; border-width: 0.15ch; background-color: WhiteSmoke">
+    <div>
+        <h4>{{ col_title }}</h4>
+        {% if task_list %}
+            {% for task in task_list %}
+                {% include 'kanban/index_task_panel.html' with task=task %}
+            {% endfor %}
+        {% else %}
+            No Tasks Present
+        {% endif %}
+
+    </div>
+
 </div>

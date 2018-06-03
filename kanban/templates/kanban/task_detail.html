@@ -6,11 +6,18 @@
 
     <h2>Task: {{ task.title }}</h2>
     <strong>Status: {{  task.get_status_display}} |</strong>
+    <a href="{% url 'task-edit' task.uuid %}">Edit</a>
     <a href="{% url 'index' %}">Back To Board</a>
 
     <hr>
 
-    <p>{{ task.description }}</p>
+
+    <p>
+        <strong>Description</strong>
+        <br>
+
+        {{ task.description }}
+    </p>
 
     <p>
         <strong>Comments</strong>
