@@ -14,10 +14,10 @@
 
 
     <div class="row">
-        {% include 'kanban/index_task_list.html' with task_list=TODO_list col_title='Tasks To Do' %}
-        {% include 'kanban/index_task_list.html' with task_list=PROG_list col_title='Tasks In Production' %}
-        {% include 'kanban/index_task_list.html' with task_list=TEST_list col_title='Tasks In Testing' %}
-        {% include 'kanban/index_task_list.html' with task_list=DONE_list col_title='Tasks Finished' %}
+        {% include 'kanban/index_task_list.html' with task_list=TODO_list title='Tasks To Do'%}
+        {% include 'kanban/index_task_list.html' with task_list=PROG_list title='Tasks In Production' %}
+        {% include 'kanban/index_task_list.html' with task_list=TEST_list title='Tasks In Testing' %}
+        {% include 'kanban/index_task_list.html' with task_list=DONE_list title='Tasks Finished' %}
     </div>
 </div>
 

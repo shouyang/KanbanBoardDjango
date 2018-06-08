@@ -5,8 +5,8 @@
 
         <small>
             {% if task.description %}
-                {{ task.description|slice:":300" }}
-                {% if task.description|length > 300 %} ... {% endif %}
+                {{ task.description|slice:":120" }}
+                {% if task.description|length > 120%} ... {% endif %}
             {% else %}
                 - ...
             {% endif %}
