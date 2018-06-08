@@ -1,5 +1,5 @@
-<div>
-    <h5> <a href="{% url 'task-detail' pk=task.uuid %}">{{ task.title }}</a></h5>
+<div class="kanban-tasklist-taskpanel">
+    <h6><a href="{% url 'task-detail' pk=task.uuid %}">{{ task.title }}</a></h6>
     <p>
         <small>{{ task.date_created }} | {{ task.author }}</small> <br>
 
@@ -11,7 +11,6 @@
                 - ...
             {% endif %}
         </small>
-
     </p>
     <strong>
     <small>
@@ -24,6 +23,5 @@
         <a href="{% url 'task-edit' pk=task.uuid %}">Edit</a>
     </small>
     </strong>
-    <br>
     <br>
 </div>

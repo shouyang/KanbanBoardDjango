@@ -1,0 +1,14 @@
+h6 {
+    line-height: 0.5em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+.kanban-tasklist {
+    background-color: aliceblue;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+}
