@@ -12,7 +12,6 @@
             {% endif %}
         </small>
     </p>
-    <strong>
     <small>
         <a href="{% url 'task-action-decrease_status' pk=task.uuid %}"><</a>
         <a href="{% url 'task-action-increase_status' pk=task.uuid %}">></a>
@@ -22,6 +21,5 @@
         <a href="{% url 'task-action-decrease_priority' pk=task.uuid %}">-</a>
         <a href="{% url 'task-edit' pk=task.uuid %}">Edit</a>
     </small>
-    </strong>
-    <br>
+    <hr>
 </div>
