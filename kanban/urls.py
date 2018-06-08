@@ -1,6 +1,10 @@
 from django.urls import path
-
+from django.contrib.auth import views as auth_views
 from . import views
+
+urlpatterns = [
+    path('', views.Index.as_view(), name='index'),
+]
 
 task_crud_patterns = [
     path('task/<uuid:pk>', views.TaskDetailView.as_view(), name='task-detail'),
@@ -8,6 +12,7 @@ task_crud_patterns = [
     path('task/edit/<uuid:pk>', views.TaskUpdate.as_view(), name='task-edit'),
     path('task/delete/<uuid:pk>', views.TaskDelete.as_view(), name='task-delete'),
 ]
+urlpatterns += task_crud_patterns
 
 task_action_patterns = [
     path('task/actions/increase_priority/<uuid:pk>', views.TaskAction.as_view(), {'action': 'increase_priority'},
@@ -23,6 +28,7 @@ task_action_patterns = [
     path('task/actions/min_priority/<uuid:pk>', views.TaskAction.as_view(), {'action': 'min_priority'},
          name='task-action-min_priority'),
 ]
+urlpatterns += task_action_patterns
 
 task_comment_crud_patterns = [
     path('task_comment/add/', views.TaskCommentCreate.as_view(), name='taskcomment-add'),
@@ -30,12 +36,10 @@ task_comment_crud_patterns = [
     path('task_comment/edit/<uuid:pk>', views.TaskCommentUpdate.as_view(), name='taskcomment-edit-specific'),
     path('task_comment/delete/<uuid:pk>', views.TaskCommentDelete.as_view(), name='taskcomment-delete'),
 ]
-
-
-urlpatterns = [
-    path('', views.Index.as_view(), name='index'),
-]
-
-urlpatterns += task_crud_patterns
-urlpatterns += task_action_patterns
 urlpatterns += task_comment_crud_patterns
+
+account_views = [
+    path('accounts/login/', views.KanbanLogin.as_view(), name='accounts-login'),
+    path('accounts/logout/', views.KanbanLogout.as_view(), name='accounts-logout'),
+]
+urlpatterns += account_views

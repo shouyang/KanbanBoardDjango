@@ -1,5 +1,7 @@
 from .index import Index
-from .taskdetailview import TaskDetailView
-from .taskforms import TaskCreate, TaskUpdate, TaskDelete
-from .taskcommentforms import TaskCommentCreate, TaskCommentUpdate, TaskCommentDelete
-from .taskactions import TaskAction
+from .taskDetailView import TaskDetailView
+from .taskForms import TaskCreate, TaskUpdate, TaskDelete
+from .taskCommentForms import TaskCommentCreate, TaskCommentUpdate, TaskCommentDelete
+from .taskActions import TaskAction
+from .kanbanLogin import KanbanLogin
+from .kanbanLogout import KanbanLogout

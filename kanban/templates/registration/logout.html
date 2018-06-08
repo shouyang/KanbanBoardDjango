@@ -1,0 +1,16 @@
+{% extends 'kanban/kanban_base.html' %}
+
+{% block title %}
+Kanban Logout
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="logout" />
+    <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+{% endblock %}

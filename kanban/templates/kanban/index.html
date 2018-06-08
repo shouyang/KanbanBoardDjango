@@ -9,7 +9,17 @@
 <div class="container-fluid">
     <div class="row">
         <h1>Django Kanban Board</h1>
-        <a href="{% url 'task-add' %}">Add Task</a>
+        <div>
+            {% if user.is_authenticated %}
+                <strong>{{ user.username|capfirst }}</strong>
+                <a href="{% url 'accounts-logout'%}">Logout</a>
+            {% else %}
+                <a href="{% url 'accounts-login' %}">Login</a>
+            {% endif %}
+
+            <a href="{% url 'task-add' %}">Add Task</a>
+        </div>
+
     </div>
 
 
