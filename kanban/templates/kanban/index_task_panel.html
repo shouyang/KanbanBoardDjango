@@ -1,5 +1,5 @@
 <div class="kanban-tasklist-taskpanel">
-    <h6><a href="{% url 'task-detail' pk=task.uuid %}">{{ task.title }}</a></h6>
+    <h6><a href="{% url 'task-detail' pk=task.uuid %}">{{ task.title|slice:":45" }}</a></h6>
     <p>
         <small>{{ task.date_created }} | {{ task.author }}</small> <br>
 
