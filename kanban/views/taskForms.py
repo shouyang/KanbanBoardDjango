@@ -10,6 +10,15 @@ class TaskCreate(CreateView):
     template_name = 'kanban/task_create_form.html'
     success_url = reverse_lazy('index')
 
+    def get_form_kwargs(self, **kwargs):
+        kwargs = super().get_form_kwargs(**kwargs)
+
+        if self.request.user.is_authenticated:
+            kwargs['initial'].update( {'author': self.request.user.username} )
+
+        return kwargs
+
+
 
 class TaskUpdate(UpdateView):
     model = Task

@@ -13,11 +13,12 @@
             {% if user.is_authenticated %}
                 <strong>{{ user.username|capfirst }}</strong>
                 <a href="{% url 'accounts-logout'%}">Logout</a>
+                <a href="{% url 'task-add' %}">Add Task</a>
             {% else %}
                 <a href="{% url 'accounts-login' %}">Login</a>
             {% endif %}
 
-            <a href="{% url 'task-add' %}">Add Task</a>
+
         </div>
 
     </div>
