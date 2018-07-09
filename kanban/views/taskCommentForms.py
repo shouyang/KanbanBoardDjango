@@ -12,7 +12,13 @@ class TaskCommentCreate(CreateView):
     template_name = 'kanban/taskcomment_create_form.html'
 
     def get_initial(self):
-        return {'task': self.kwargs.get('task_pk')}
+
+        initial = {'task': self.kwargs.get('task_pk')}
+
+        if self.request.user.is_authenticated:
+            initial.update({'author': self.request.user.username})
+
+        return initial
 
     def get_success_url(self):
         return reverse_lazy('task-detail', kwargs={'pk':self.object.task.uuid})
