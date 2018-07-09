@@ -5,3 +5,4 @@ from .taskCommentForms import TaskCommentCreate, TaskCommentUpdate, TaskCommentD
 from .taskActions import TaskAction
 from .kanbanLogin import KanbanLogin
 from .kanbanLogout import KanbanLogout
+from .userTasks import UserTasks

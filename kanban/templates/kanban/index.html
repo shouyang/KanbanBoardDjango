@@ -13,7 +13,9 @@
             {% if user.is_authenticated %}
                 <strong>{{ user.username|capfirst }}</strong>
                 <a href="{% url 'accounts-logout'%}">Logout</a>
-                <a href="{% url 'task-add' %}">Add Task</a>
+                |<a href="{% url 'index' %}"> All Tasks</a>
+                |<a href="{% url 'user-tasks' %}"> My Tasks</a>
+                |<a href="{% url 'task-add' %}"> Add Task</a>
             {% else %}
                 <a href="{% url 'accounts-login' %}">Login</a>
             {% endif %}

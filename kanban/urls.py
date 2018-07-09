@@ -39,6 +39,7 @@ task_comment_crud_patterns = [
 urlpatterns += task_comment_crud_patterns
 
 account_views = [
+    path('accounts/tasks/', views.UserTasks.as_view(), name='user-tasks'),
     path('accounts/login/', views.KanbanLogin.as_view(), name='accounts-login'),
     path('accounts/logout/', views.KanbanLogout.as_view(), name='accounts-logout'),
 ]
